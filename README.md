@@ -2,7 +2,7 @@ This is how to fix offset EPG of your IPTV provider i.e. if your epg is ahead or
 
 Below link will download a script and setup daily cron in your enigma2 box which will download your provider epg everyday at 6:00am and fix the time offset issue.
 
-wget -O /tmp/setup.sh "https://github.com/ravstar/Enigma2/raw/main/setup.sh" && sed -i 's,url:port,PROVIDER-LINK:PORT,g;s,uuuuuu,USERNAME,g;s,pppppp,PASSWORD,g;s/temp/-HHMM/g;s/der/FILENAME.xml/g' /tmp/setup.sh && cd /tmp/ && chmod 755 setup.sh && ./setup.sh
+wget -O /tmp/setup.sh "https://github.com/ravstar/Enigma2/raw/main/setup.sh" && sed -i 's,url:port,PROVIDER-LINK:PORT,g;s,uuuuuu,USERNAME,g;s,pppppp,PASSWORD,g;s/temp/HHMM/g;s/der/FILENAME.xml/g' /tmp/setup.sh && cd /tmp/ && chmod 755 setup.sh && ./setup.sh
 
 Please replace following in the above link else it won't work
 
