@@ -25,5 +25,8 @@ You will need SSH client: to connect to the device to run the above script, I pe
 
 Point to be noted: The time taken by script from start to finish would depend on your box for example my Zgemma H9S takes around 9 mins to update the file everyday on other side Zgemma H2S takes 50-60 mins to update the file. But it will run in the background and won't intrupt if you are watching anything on your box.
 
-As I mentioned above the default time for daily cron is 6:00am so make sure you set your epg importer automatic start time to atleast 7:10am
+Once done, go into your epg importer, clear current EPG before importing and import manually by pressing yellow button on your zgemma box.
+
+As I mentioned above the default time for daily cron is 6:00am so make sure you set your epg importer automatic start time not before 7:10am
+
 You can change the cron timer by using putty.
