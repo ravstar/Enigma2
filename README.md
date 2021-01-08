@@ -2,11 +2,11 @@ This is how to fix offset EPG of your IPTV provider i.e. if your epg is ahead or
 
 Below link will download a script and setup daily cron in your enigma2 box which will download your provider epg everyday at 6:00am and fix the time offset issue.
 
-wget -O /tmp/setup.sh "https://github.com/ravstar/Enigma2/raw/main/setup.sh" && sed -i 's,url:port,PROVIDER-LINK:PORT,g;s,uuuuuu,USERNAME,g;s,pppppp,PASSWORD,g;s/temp/HHMM/g;s/der/FILENAME.xml/g' /tmp/setup.sh && cd /tmp/ && chmod 755 setup.sh && ./setup.sh
+wget -O /tmp/setup.sh "https://github.com/ravstar/Enigma2/raw/main/setup.sh" && sed -i 's,llllll,http://DOMAIN-URL:PORT,g;s,uuuuuu,USERNAME,g;s,pppppp,PASSWORD,g;s/temp/-HHMM/g' /tmp/setup.sh && cd /tmp/ && chmod 755 setup.sh && ./setup.sh
 
 Please replace following in the above link else it won't work
 
-PROVIDER-LINK :- to be replaced with your iptv provider domain/server url this would be like iptvline.com
+DOMAIN-URL :- to be replaced with your iptv provider domain/server url address this would be like http://iptvline.com
 
 PORT :- to be replaced with your iptv provider port that would be 80 or 8080 or 2543 etc.
 
