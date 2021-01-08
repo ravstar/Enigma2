@@ -1,4 +1,4 @@
-To fix offset EPG of your IPTV provider i.e. if your epg is ahead or behind and showing wrong program information. You can adjust the offset time between any range from 1 minute to upto 23 hours.
+To fix an offset EPG of your IPTV provider i.e. if your epg is ahead or behind and showing wrong program information. You can adjust the offset time between any range from 1 minute to upto 23 hours.
 
 HOW DOES IT WORK: The below script will create a new source file for EPGimporter and fix the offset time issue of your provider's epg by downloading it onto your HDD and fixing it so you get the correct programme guide. This will also setup a daily cron that will update the data everyday at 6:00am
 
