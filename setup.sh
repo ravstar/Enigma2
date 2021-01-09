@@ -1,8 +1,8 @@
 cd
 mkdir -p /media/hdd/epg
 cd /etc/epgimport/
-find . -type f -name "jmx.*.sources.xml" -exec cp {} /media/hdd/epg \;
-cd /media/hdd/epg/ && mv *.sources.xml new.EPG.sources.xml
+find . -type f -name "ffffff" -exec cp {} /media/hdd/epg \;
+cd /media/hdd/epg/ && mv ffffff new.EPG.sources.xml
 mv /media/hdd/epg/new.EPG.sources.xml /etc/epgimport
 sed -i 's,llllll/xmltv.php?username=uuuuuu&password=pppppp&next_days=7,/media/hdd/epg/iptvepg.xml.gz,g' /etc/epgimport/new.EPG.sources.xml
 sed -i 's/sourcecatname="/sourcecatname="New-EPG_/g' /etc/epgimport/new.EPG.sources.xml
