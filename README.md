@@ -27,11 +27,11 @@ PASSWORD :- to be replaced with your iptv password
 -/+HHMM :- this would be the time that you would like to adjust the EPG for. You can adjust this range from 1 minute upto 23 hrs.
 
 Example- if your epg is half an hour ahead then put -0030
-        if your epg is an hour ahead then put -0100
-        if your epg is two hours ahead then put -0200
-        if your epg is half an hour behind then put +0030
-        if your epg is an hour behind then put +0100
-        if you epg is two hours behind then put +0200, and so on..
+         if your epg is an hour ahead then put -0100
+         if your epg is two hours ahead then put -0200
+         if your epg is half an hour behind then put +0030
+         if your epg is an hour behind then put +0100
+         if you epg is two hours behind then put +0200, and so on..
 
 FILENAME.xml:- to be replaced with jmx.XXX.sources.xml file in /etc/epgimport/ directory of your enigma2 box. You can view list of files by typing cd /etc/epgimport/ && ls in SSH client and hit enter.
 
