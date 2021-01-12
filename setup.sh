@@ -5,8 +5,7 @@ echo "uninstalling previous version of this script"
 # Remove old script data
 rm /etc/epgimport/new.EPG.sources.xml
 rm /etc/hdd/epg/iptvepg.xml.gz
-# Removing Cron
-crontab -l | grep -v "\59 \05 \* \* \* cd /usr/script/ && ./xmltv.sh" | crontab -
+
 echo "starting new installation"
 
 workdir="/media/hdd/epg"
