@@ -1,4 +1,27 @@
-wget -O /media/hdd/epg/iptvepg.xml "link/xmltv.php?username=nnnnnn&password=wwwwww&next_days=7"
-sed -i '/+0000/ s//time/g' /media/hdd/epg/iptvepg.xml
-gzip -f /media/hdd/epg/iptvepg.xml > /media/hdd/epg/iptvepg.xml.gz
+#!/bin/sh
+#
+
+xmltvfilename="dddddd"
+url="&"
+time="tttttt"
+source="ssssss"
+
+echo "Downloading EPG data..."
+
+wget -O ${xmltvfilename} "${url}"
+
+clock=$(date '+%H:%M:%S:')
+echo $clock "CORRECTING TIME. PLEASE WAIT, IT WOULD TAKE BETWEEN 10-50 MINUTES SO BE PATIENT..."
+
+sed -i "/+0000/ s//$time/g" ${xmltvfilename}
+
+gzip -f  ${xmltvfilename} > ${xmltvfilename}.gz
+
+#replace source - double quotes required for sed to convert variables. 
+sed -i "s|$url|$xmltvfilename.gz|g" $source
+echo
+echo
+clock1=$(date '+%H:%M:%S:')
+echo $clock1 "All done! go to epgimpoter, Look for option named 'Clearing current EPG before import' and turn it to yes and Import EPG manually by pressing yellow button"
+
 exit
