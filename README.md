@@ -42,26 +42,38 @@ All done! Happy viewing.
 IF you get an ERROR saying Script has been installed though it won't work until you follow one more step manually
 
 it will print additional text saying
+
 ""My xml HHMM is: +/-four digits and I want to adjust it by: +/-four digits""
+
 Here's how you can fix it
+
 Let's say the above text printed on your terminal as
+
 My xml HHMM is: +0400 and I want to adjust it by: -0100
+
 meaning your epg is an hour ahead so you need to change +0400 to +0300 (i.e. +0400-0100=+0300)
-then you have to run below command as
+
+then you have to run below command as 
+
 sed -i 's|+0000|+0400|g; s|-0100|+0300|g' /usr/script/xmltv.sh && ./xmltv.sh
+
 this will complete the setup
 
 Another example: text printed on your terminal as
+
 My xml HHMM is: -0500 and I want to adjust it by: +0300
+
 meaning your epg is 3 hours behind so you need to change -0500 to -0200 (i.e. -0500+0300=-0200)
-then you have to run below command as
-sed -i 's|+0000|-0500|g; s|+0300|-0200|g' /usr/script/xmltv.sh && ./xmltv.sh
+
+then you have to run command as sed -i 's|+0000|-0500|g; s|+0300|-0200|g' /usr/script/xmltv.sh && ./xmltv.sh
 
 One more example: text printed on your terminal as
+
 My xml HHMM is: -0300 and I want to adjust it by: -0200
-meaning your epg is 2 hours ahead so you need to change -0200 to -0100 (i.e. -0300+0200=-0100)
-then you have to run below command as
-sed -i 's|+0000|-0300|g; s|-0200|-0100|g' /usr/script/xmltv.sh && ./xmltv.sh
+
+meaning your epg is 2 hours ahead so you need to change -0200 to -0500 (i.e. -0300-0200=-0500)
+
+then you have to run command as sed -i 's|+0000|-0300|g; s|-0200|-0100|g' /usr/script/xmltv.sh && ./xmltv.sh
 
 If you still need help, then post that message here in this thread and I will make the command for you to run to fix the error.
 
