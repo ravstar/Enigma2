@@ -1,10 +1,21 @@
 #!/bin/sh
 #
+# v1.2
+
 echo "uninstalling previous version of this script"
 
 # Remove old script data
 rm /etc/epgimport/new.EPG.sources.xml
 rm /etc/hdd/epg/iptvepg.xml.gz
+# Removing Cron
+cron=$(crontab -l | grep -F "00 06 * * * cd /usr/script/ && ./xmltv.sh " | wc -m)
+if [ $cron -eq "0" ]; then
+echo "no cron found"
+else
+crontab -l | grep -v "00 06 \* \* \* cd /usr/script/ && ./xmltv.sh " | crontab -
+echo
+echo "Old cron removed"
+fi
 
 echo "starting new installation"
 
@@ -74,7 +85,17 @@ wget -O /usr/script/uninstall1.sh "https://github.com/ravstar/Enigma2/raw/main/u
 sed -i "s|dddddd|$xmltvfilename|; s|tttttt|$time|; s|ssssss|$source|" "/usr/script/uninstall1.sh"
 cd /usr/script/ && chmod 755 uninstall1.sh
 
-crontab -l | { cat; echo "59 05 * * * cd /usr/script/ && ./xmltv.sh "; } | crontab -
+cron1=$(crontab -l | grep -F "59 05 * * * cd /usr/script/ && ./xmltv.sh " | wc -m)
+if [ $cron1 -eq "0" ]; then
+crontab -l | { cat; echo "10 06 * * * cd /usr/script/ && ./xmltv.sh "; } | crontab -
+echo "Daily cron installed"
+else
+echo
+crontab -l | grep -v "59 05 \* \* \* cd /usr/script/ && ./xmltv.sh " | crontab -
+echo
+crontab -l | { cat; echo "10 06 * * * cd /usr/script/ && ./xmltv.sh "; } | crontab -
+echo "Daily cron time changed to 06:10am"
+fi 
 
 HHMM=$(wget "${url}" -O -| grep -o 'start=".*$' | cut -c 23-27 | cut -f 1 -d '"' | head -1)
 echo

@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Unistall xmltv script
+# Unistall xmltv script v1.2
 
 xmltvfilename="dddddd"
 url=$(grep -o 'url=".*$' /usr/script/xmltv.sh | cut -c6- | cut -f 1 -d '"')
@@ -14,7 +14,7 @@ sed -i "s|$xmltvfilename.gz|\\&|" $source
 sed -i "s|\\&|$url|" $source
 
 # Removing Cron
-crontab -l | grep -v "\59 \05 \* \* \* cd /usr/script/ && ./xmltv.sh" | crontab -
+crontab -l | grep -v "10 06 \* \* \* cd /usr/script/ && ./xmltv.sh " | crontab -
 
 # Removing script
 rm /usr/script/xmltv.sh
