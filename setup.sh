@@ -24,11 +24,16 @@ grabxmltvfilename=$(grep -o 'xmltvfilename=".*$' /usr/script/xmltv.sh | cut -c16
 echo $grabxmltvfilename
 grabsource=$(grep -o 'source=".*$' /usr/script/xmltv.sh | cut -c9- | cut -f 1 -d '"')
 echo $grabsource
-rm ${grabxmltvfilename}.gz
+pathh=$(grep -o '\[CDATA\[.*$' $grabsource | cut -c8- | cut -f 1 -d "]")
+if [ "$pathh" == "$grabxmltvfilename".gz ]; then
 sed -i "s|$grabxmltvfilename.gz|\\&|" $grabsource
 sed -i "s|\\&|$graburl|" $grabsource
+rm ${grabxmltvfilename}.gz
+echo "Original iptv url replaced in $grabsource"
+else
+echo "Iptv url already exists in $grabsource"
 fi
-
+fi
 echo "starting new installation"
 
 workdir="/media/hdd/epg"
