@@ -16,6 +16,18 @@ crontab -l | grep -v "00 06 \* \* \* cd /usr/script/ && ./xmltv.sh " | crontab -
 echo
 echo "Old cron removed"
 fi
+xmltv=$(cd /usr/script/ && ls -d *xmltv.sh* | wc -l)
+if [ $xmltv -eq "1" ]; then
+graburl=$(grep -o 'url=".*$' /usr/script/xmltv.sh | cut -c6- | cut -f 1 -d '"')
+echo $graburl
+grabxmltvfilename=$(grep -o 'xmltvfilename=".*$' /usr/script/xmltv.sh | cut -c16- | cut -f 1 -d '"')
+echo $grabxmltvfilename
+grabsource=$(grep -o 'source=".*$' /usr/script/xmltv.sh | cut -c9- | cut -f 1 -d '"')
+echo $grabsource
+rm ${grabxmltvfilename}.gz
+sed -i "s|$grabxmltvfilename.gz|\\&|" $grabsource
+sed -i "s|\\&|$graburl|" $grabsource
+fi
 
 echo "starting new installation"
 
