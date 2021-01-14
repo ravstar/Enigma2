@@ -1,4 +1,4 @@
-NEW INSTRUCTIONS & UPDATED SCRIPT 12/01/2021 v1.1
+NEW INSTRUCTIONS & UPDATED SCRIPT 12/01/2021 v1.2
 
 Please note: This version will automatically remove the previous version of this script.
 
