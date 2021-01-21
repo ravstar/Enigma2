@@ -78,4 +78,4 @@ then you have to run command as sed -i 's|+0000|-0300|g; s|-0200|-0100|g' /usr/s
 If you still need help, then post that message here in this thread and I will make the command for you to run to fix the error.
 
 If you would like to uninstall above script and changes it has made for any reason, then paste following link in your SSH client and hit enter.
-cd /usr/script && ./uninstall.sh
+cd /usr/script && ./uninstall1.sh
