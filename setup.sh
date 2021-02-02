@@ -108,6 +108,11 @@ name=$(grep -o 'catname=.*$' ${source} | cut -c10- | cut -f 1 -d '"' | \
 sed -e 's|<|_|g; s|>|_|g; s|:|_|g; s|"|_|g; s|/|_|g; s|\\|_|g; s/|/_/g; s|?|_|g; s|*|_|g; s| |_|g')
 echo $name
 
+insdir="/usr/script"
+if [ ! -d "${insdir}" ]; then
+  mkdir -p "${insdir}" 
+fi
+
 #download xmltv file (xmltv.sh) to filename $xmltvfilename - replace old time with new time
 xmltvfilename="${workdir}/${name}.xml"
 echo $xmltvfilename
