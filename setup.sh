@@ -101,7 +101,7 @@ if [ ! -d "${workdir}" ]; then
 fi
 source="${epgimport}/$filename"
 # get url from source file
-url=$(grep -o 'http.*$' ${source} | cut -f 1 -d ']')
+url=$(grep -o "<url><\!\[\CDATA.*$" ${source} | cut -c 15- | cut -f 1 -d ']')
 echo $url
 #get name from source file, remove illegal file characters with underscore and make lower case
 name=$(grep -o 'catname=.*$' ${source} | cut -c10- | cut -f 1 -d '"' | \
