@@ -127,7 +127,7 @@ cd /usr/script/ && chmod 755 uninstall1.sh
 crontab -l | { cat; echo "10 06 * * * cd /usr/script/ && ./xmltv.sh "; } | crontab -
 echo "Daily cron added to run script daily at 06:10am"
 
-HHMM=$(wget "${url}" -O -| grep -o 'start=".*$' | cut -c 22-27 | cut -f 1 -d '"' | tail -n +1 | head -1 -)
+HHMM=$(wget -qO- "$url" | awk -F 'start="' '{print $2;exit;}' | cut -c15- | cut -f 1 -d '"' | tail -n +1 | head -1)
 echo
 echo "xml HHMM is $HHMM"
 echo
